@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -8,20 +9,18 @@ export default function HeroSection() {
     <section className="relative w-full pt-24 md:pt-32 lg:pt-40 pb-12 md:pb-24 bg-background">
       <div className="container px-4 md:px-6">
         <div className="relative bg-primary/10 rounded-3xl p-8 md:p-16 overflow-hidden">
-          <div className="absolute inset-0 z-[-1]">
-            <Image
-              src="https://placehold.co/1200x600.png"
-              alt="Green interior design with modern furniture"
-              data-ai-hint="green interior design"
-              fill
-              className="object-cover opacity-10"
-              priority
-            />
-          </div>
-
-          <div className="grid md:grid-cols-1 gap-8 items-center">
+          <Image
+            src="https://placehold.co/1200x800.png"
+            alt="Modern home interior"
+            data-ai-hint="modern home interior"
+            fill
+            className="object-cover rounded-3xl"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50 rounded-3xl" />
+          <div className="relative z-10 grid md:grid-cols-1 gap-8 items-center">
             <div className="space-y-6 text-center">
-              <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+              <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
                 Transforming Spaces,
                 <br />
                 <span className="text-primary">Elevating Lives</span>
