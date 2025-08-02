@@ -3,9 +3,9 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'ISRAT DECOR - Bespoke Interior Design',
-  description: 'Transforming spaces and inspiring lives with timeless, elegant interior design. We create bespoke spaces that reflect your unique personality.',
-  keywords: ['interior design', 'bespoke design', 'luxury interiors', 'home decor', 'ISRAT DECOR'],
+  title: 'La Decor - Transforming Spaces, Elevating Lives',
+  description: 'Bespoke interior design services to transform your space and elevate your life. Book a consultation today.',
+  keywords: ['interior design', 'bespoke design', 'luxury interiors', 'home decor', 'La Decor'],
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
         {children}

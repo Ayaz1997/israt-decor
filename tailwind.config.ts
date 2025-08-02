@@ -19,6 +19,7 @@ export default {
       fontFamily: {
         body: ['Urbanist', 'sans-serif'],
         headline: ['Urbanist', 'sans-serif'],
+        'serif-display': ['"DM Serif Display"', 'serif'],
         code: ['monospace'],
       },
       colors: {
