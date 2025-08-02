@@ -1,16 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { CheckCircle2 } from 'lucide-react';
-
-const avatars = [
-  "https://placehold.co/40x40.png",
-  "https://placehold.co/40x40.png",
-  "https://placehold.co/40x40.png",
-  "https://placehold.co/40x40.png",
-  "https://placehold.co/40x40.png",
-]
 
 export default function HeroSection() {
   return (
@@ -28,34 +19,23 @@ export default function HeroSection() {
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6 text-center md:text-left">
+          <div className="grid md:grid-cols-1 gap-8 items-center">
+            <div className="space-y-6 text-center">
               <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
                 Transforming Spaces,
                 <br />
                 <span className="text-primary">Elevating Lives</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground">
-                Book a consultation
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" asChild>
                   <Link href="#contact">
                     Book a consultation
                   </Link>
                 </Button>
-                <div className="flex -space-x-2 overflow-hidden">
-                  {avatars.map((src, i) => (
-                    <Avatar key={i} className="border-2 border-background">
-                      <AvatarImage src={src} alt={`Avatar ${i + 1}`} data-ai-hint="person face" />
-                      <AvatarFallback>AV</AvatarFallback>
-                    </Avatar>
-                  ))}
-                </div>
               </div>
             </div>
             
-            <div className="relative h-64 md:h-auto md:aspect-square">
+            <div className="relative h-64 md:h-auto md:aspect-square max-w-lg mx-auto w-full">
               <Image
                 src="https://placehold.co/600x600.png"
                 alt="Stylish living room with green accents"

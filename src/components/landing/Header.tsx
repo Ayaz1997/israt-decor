@@ -4,18 +4,16 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 
 const navLinks = [
-  { href: '#furnitures', label: 'Furnitures' },
-  { href: '#designers', label: 'Designers' },
-  { href: '#trends', label: 'Trends' },
-  { href: '#blog', label: 'Blog' },
-  { href: '#about', label: 'About Us' },
+  { href: '#', label: 'Home' },
+  { href: '#offerings', label: 'Our Offerings' },
+  { href: '#gallery', label: 'Our Works' },
+  { href: '#contact', label: 'Contact Us' },
 ];
 
 function Logo() {
   return (
     <Link href="/" className="flex items-center" prefetch={false}>
-       <span className="font-serif-display text-2xl italic">La</span>
-       <span className="font-headline text-2xl font-bold">Decor</span>
+       <span className="font-headline text-2xl font-bold">ISRAT DECOR</span>
     </Link>
   )
 }
@@ -35,8 +33,8 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-            <Button variant="link" asChild>
-                <Link href="/auth">Sign up / Log in</Link>
+            <Button asChild>
+                <Link href="#contact">Get in touch</Link>
             </Button>
         </div>
         <div className="md:hidden">
@@ -59,8 +57,8 @@ export default function Header() {
                     </Link>
                   ))}
                 </nav>
-                <Button variant="link" asChild className="mt-4">
-                    <Link href="/auth">Sign up / Log in</Link>
+                <Button asChild className="mt-4">
+                    <Link href="#contact">Get in touch</Link>
                 </Button>
               </div>
             </SheetContent>
