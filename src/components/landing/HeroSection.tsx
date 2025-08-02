@@ -7,9 +7,9 @@ export default function HeroSection() {
   return (
     <section className="relative w-full pt-24 md:pt-32 lg:pt-40 pb-12 md:pb-24 bg-background">
       <div className="container px-4 md:px-6">
-        <div className="relative bg-primary/10 rounded-3xl p-8 md:p-16 overflow-hidden flex items-center justify-center text-center" style={{minHeight: '50vh'}}>
+        <div className="relative bg-primary/10 rounded-3xl p-8 md:p-16 overflow-hidden flex items-center justify-center text-center" style={{minHeight: '75vh'}}>
           <Image
-            src="/hero-background.png"
+            src="/hero-bg.jpg"
             alt="Modern home interior"
             data-ai-hint="modern home interior"
             fill
