@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="container px-4 md:px-6">
         <div className="relative bg-primary/10 rounded-3xl p-8 md:p-16 overflow-hidden flex items-center justify-center text-center" style={{minHeight: '50vh'}}>
           <Image
-            src="https://placehold.co/1200x800.png"
+            src="/hero-background.png"
             alt="Modern home interior"
             data-ai-hint="modern home interior"
             fill
