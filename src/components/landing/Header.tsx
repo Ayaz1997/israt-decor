@@ -77,7 +77,7 @@ export default function Header() {
                   ? 'text-primary font-bold'
                   : ''
             )}
-            style={isInSheet ? {} : { fontSize: '18px' }}
+            style={isInSheet ? {} : { fontSize: '24px' }}
             prefetch={false}
           >
             {link.label}
@@ -106,45 +106,12 @@ export default function Header() {
             </Button>
           </div>
           <div className="md:hidden">
-            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-foreground">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Toggle navigation menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent 
-                side="bottom" 
-                className="h-full w-full p-0 border-none"
-                style={{
-                  background: 'rgba(0, 0, 0, 0.5)',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                }}
-              >
-                <div className="container h-full mx-auto px-4 flex flex-col items-center justify-center">
-                  <SheetTrigger asChild>
-                     <Button variant="ghost" size="icon" className="text-white absolute top-6 right-4">
-                        <X className="h-8 w-8" />
-                        <span className="sr-only">Close menu</span>
-                    </Button>
-                  </SheetTrigger>
-                  
-                  <NavMenu className="flex flex-col items-center text-center gap-6" isInSheet={true} onItemClick={() => setIsMobileMenuOpen(false)} />
-                  
-                  <Button asChild className="mt-12" size="lg">
-                    <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                      <Phone />
-                      Get in touch
-                    </Link>
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
+             {/* This button is part of the non-scrolled header, we can hide it to avoid duplication */}
           </div>
         </div>
       </header>
       
+      {/* Scrolled Header for Desktop */}
       <div
         className={cn(
           'fixed top-0 left-1/2 -translate-x-1/2 z-40 transition-all duration-300 ease-in-out',
@@ -161,6 +128,54 @@ export default function Header() {
         >
           <NavMenu className="flex items-center gap-2" />
         </div>
+      </div>
+
+       {/* Sticky Mobile Menu Trigger */}
+      <div className="md:hidden fixed bottom-4 right-4 z-50">
+        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+          <SheetTrigger asChild>
+             <Button 
+                variant="ghost" 
+                size="icon" 
+                className="rounded-full h-14 w-14 text-white backdrop-blur-md"
+                style={{
+                  background: 'rgba(0, 0, 0, 0.3)',
+                }}
+              >
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent 
+            side="bottom" 
+            className="h-auto w-auto p-0 border-none bg-transparent"
+          >
+            <div 
+              className="m-4 p-6 rounded-3xl"
+              style={{
+                background: 'rgba(0, 0, 0, 0.5)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+              }}
+            >
+              <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-white absolute top-6 right-6">
+                    <X className="h-8 w-8" />
+                    <span className="sr-only">Close menu</span>
+                </Button>
+              </SheetTrigger>
+              
+              <NavMenu className="flex flex-col items-start text-left gap-4" isInSheet={true} onItemClick={() => setIsMobileMenuOpen(false)} />
+              
+              <Button asChild className="mt-8" size="lg">
+                <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Phone />
+                  Get in touch
+                </Link>
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </>
   );
