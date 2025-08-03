@@ -67,14 +67,15 @@ export default function Header() {
             key={link.href}
             href={link.href}
             className={cn(
-                'px-4 py-2 transition-colors text-lg',
+                'px-4 py-2 transition-colors text-lg whitespace-nowrap',
                 isInSheet 
-                  ? 'font-semibold' 
-                  : 'font-semibold',
+                  ? 'font-semibold text-lg' 
+                  : 'text-lg',
                 activeLink === link.href
                   ? 'text-primary font-bold'
-                  : 'text-foreground/80 hover:text-foreground'
+                  : 'text-foreground/80 hover:text-foreground font-semibold'
             )}
+            style={{ fontSize: '18px' }}
             prefetch={false}
           >
             {link.label}
@@ -130,10 +131,11 @@ export default function Header() {
         )}
       >
         <div 
-          className="hidden md:flex items-center backdrop-blur-[12px] border border-white/20 rounded-[40px] px-6 py-3 shadow-2xl shadow-black/20"
+          className="hidden md:flex items-center backdrop-blur-md border rounded-[40px] px-6 py-3 shadow-2xl shadow-black/20"
           style={{
-            background: 'rgba(255, 255, 255, 0.1)',
-            backgroundImage: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)',
+            background: 'rgba(255, 255, 255, 0.16)',
+            borderColor: 'rgba(255, 255, 255, 0.2)',
+            backgroundImage: 'linear-gradient(-45deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 100%)',
           }}
         >
           <NavMenu className="flex items-center gap-2" />
