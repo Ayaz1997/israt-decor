@@ -5,6 +5,17 @@ import { z } from 'zod';
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters."}),
   email: z.string().email({ message: "Please enter a valid email address."}),
+  contactNumber: z.string().min(10, { message: "Contact number must be at least 10 digits."}),
+  workRequirement: z.enum([
+    "False Ceiling",
+    "Modular Kitchen",
+    "Carpentry",
+    "Electrical",
+    "AC Installation",
+    "Wardrobe",
+  ], {
+    errorMap: () => ({ message: "Please select a valid work requirement." }),
+  }),
   message: z.string().min(10, { message: "Message must be at least 10 characters."}),
 });
 
@@ -17,6 +28,8 @@ export async function submitContactForm(prevState: FormState, formData: FormData
   const validatedFields = contactSchema.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),
+    contactNumber: formData.get('contactNumber'),
+    workRequirement: formData.get('workRequirement'),
     message: formData.get('message'),
   });
 
@@ -33,7 +46,7 @@ export async function submitContactForm(prevState: FormState, formData: FormData
   console.log('Form data:', validatedFields.data);
 
   return {
-    message: 'Thank you for your message! We will get back to you soon.',
+    message: 'Thank you for your proposal! We will get back to you soon.',
     success: true,
   };
 }

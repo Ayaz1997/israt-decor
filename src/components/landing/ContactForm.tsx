@@ -9,17 +9,33 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 const initialState: FormState = {
   message: '',
   success: false,
 };
 
+const workRequirements = [
+  "False Ceiling",
+  "Modular Kitchen",
+  "Carpentry",
+  "Electrical",
+  "AC Installation",
+  "Wardrobe",
+];
+
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? 'Sending...' : 'Send Message'}
+      {pending ? 'Sending...' : 'Send Proposal'}
     </Button>
   );
 }
@@ -51,6 +67,23 @@ export default function ContactForm() {
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input id="email" name="email" type="email" placeholder="Your Email" required />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="contactNumber">Contact Number</Label>
+        <Input id="contactNumber" name="contactNumber" placeholder="Your Contact Number" required />
+      </div>
+       <div className="space-y-2">
+        <Label htmlFor="workRequirement">Work Requirement</Label>
+        <Select name="workRequirement" required>
+            <SelectTrigger id="workRequirement">
+                <SelectValue placeholder="Select a service" />
+            </SelectTrigger>
+            <SelectContent>
+                {workRequirements.map((req) => (
+                    <SelectItem key={req} value={req}>{req}</SelectItem>
+                ))}
+            </SelectContent>
+        </Select>
       </div>
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
