@@ -143,7 +143,7 @@ export default function Header() {
         )}
       >
         <NavMenu
-          className="hidden md:flex items-center gap-2 bg-white/70 backdrop-blur-lg border border-white/20 rounded-[40px] px-6 py-3 shadow-lg"
+          className="hidden md:flex items-center gap-2 bg-white/50 backdrop-blur-xl border border-white/30 rounded-[40px] px-6 py-3 shadow-2xl"
         />
       </div>
     </>
