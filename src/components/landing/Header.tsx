@@ -131,9 +131,9 @@ export default function Header() {
         )}
       >
         <div 
-          className="hidden md:flex items-center bg-white/10 backdrop-blur-[8px] border border-white/20 rounded-[40px] px-6 py-3 shadow-2xl shadow-black/10"
+          className="hidden md:flex items-center bg-white/10 backdrop-blur-[4px] border border-white/20 rounded-[40px] px-6 py-3 shadow-2xl shadow-black/10"
           style={{
-            background: 'rgba(255, 255, 255, 0.16)'
+            background: 'rgba(255, 255, 255, 0.12)'
           }}
         >
           <NavMenu className="flex items-center gap-2" />
