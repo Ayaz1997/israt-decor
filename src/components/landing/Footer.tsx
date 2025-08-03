@@ -9,24 +9,24 @@ export default function Footer() {
       <div className="container px-4 md:px-6 relative z-10">
         <div className="mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight">
-            Are You Prepared To
+            Live in Heaven
             <br />
-            Collaborate With Us?
+            you created.
           </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           <div className="space-y-2">
             <h3 className="font-semibold text-lg">Address</h3>
             <p className="text-muted-foreground">
-              1234 City st, New York
+              Jharpada, Bhubaneshwar
               <br />
-              NY 8800
+              Odisha - 751006
             </p>
           </div>
           <div className="space-y-2">
             <h3 className="font-semibold text-lg">Contact</h3>
             <p className="text-muted-foreground">
-              +1 (123) 001-1234
+              +91 965 872 6866
               <br />
               <Link href="mailto:hello@isratdecor.com" className="hover:text-primary">
                 hello@isratdecor.com
@@ -44,7 +44,7 @@ export default function Footer() {
                  <Image src="/instagram.svg" alt="Instagram" width={24} height={24} className="h-6 w-6" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="https://wa.me/11230011234" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+              <Link href="https://wa.me/+919658726866" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
                  <Image src="/whatsapp.svg" alt="WhatsApp" width={24} height={24} className="h-6 w-6" />
                 <span className="sr-only">WhatsApp</span>
               </Link>
