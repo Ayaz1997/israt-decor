@@ -34,7 +34,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="space-y-2">
-            <h3 className="font-semibold text-lg">Our Social Links</h3>
+            <h3 className="font-semibold text-lg">Find us at</h3>
             <div className="flex items-center space-x-4">
               <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
                 <Image src="/facebook.svg" alt="Facebook" width={24} height={24} className="h-6 w-6" />
