@@ -36,14 +36,14 @@ export default function Header() {
         .map(link => document.querySelector(link.href));
         
       let currentSectionId = '#';
-      sections.forEach(section => {
+      for (const section of sections) {
         if (section && scrollPosition >= (section as HTMLElement).offsetTop - 100) {
             const sectionId = `#${section.id}`;
             if(navLinks.some(link => link.href === sectionId)) {
                 currentSectionId = sectionId;
             }
         }
-      });
+      }
       
       if (scrollPosition < 200) {
         currentSectionId = '#';
@@ -67,13 +67,13 @@ export default function Header() {
           <Link
             href={link.href}
             className={cn(
-                'transition-colors',
+                'transition-colors text-lg',
                 isInSheet 
-                  ? 'text-lg font-semibold' 
-                  : 'text-lg font-semibold',
+                  ? 'font-semibold' 
+                  : 'font-semibold',
                 activeLink === link.href
                   ? 'text-primary font-bold'
-                  : 'text-foreground/70 hover:text-foreground'
+                  : 'text-foreground/80 hover:text-foreground'
             )}
             prefetch={false}
           >
@@ -87,8 +87,8 @@ export default function Header() {
   return (
     <>
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-transform duration-300",
-        isScrolled ? "-translate-y-full" : "translate-y-0"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled ? "opacity-0 -translate-y-full" : "opacity-100 translate-y-0"
       )}>
         <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-6">
           <Logo />
@@ -131,10 +131,10 @@ export default function Header() {
         )}
       >
         <div 
-          className="hidden md:flex items-center bg-white/10 backdrop-blur-[4px] border border-white/20 rounded-[40px] px-6 py-3 shadow-2xl shadow-black/10"
+          className="hidden md:flex items-center backdrop-blur-[12px] border border-white/20 rounded-[40px] px-6 py-3 shadow-2xl shadow-black/20"
           style={{
-            background: 'rgba(255, 255, 255, 0.16)',
-            backdropFilter: 'blur(10px)',
+            background: 'rgba(255, 255, 255, 0.10)',
+            backgroundImage: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)',
           }}
         >
           <NavMenu className="flex items-center gap-2" />
