@@ -8,24 +8,28 @@ import { ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
+    id: 1,
     title: 'Zen Habitat',
     landscapeSrc: 'https://placehold.co/800x600.png',
     portraitSrc: 'https://placehold.co/400x500.png',
     hint: 'zen habitat',
   },
   {
+    id: 2,
     title: 'Modern Heritage',
     landscapeSrc: 'https://placehold.co/800x600.png',
     portraitSrc: 'https://placehold.co/400x500.png',
     hint: 'modern heritage',
   },
   {
+    id: 3,
     title: 'Urban Luxe',
     landscapeSrc: 'https://placehold.co/800x600.png',
     portraitSrc: 'https://placehold.co/400x500.png',
     hint: 'urban luxe',
   },
   {
+    id: 4,
     title: 'Nordic Essence',
     landscapeSrc: 'https://placehold.co/800x600.png',
     portraitSrc: 'https://placehold.co/400x500.png',
@@ -35,9 +39,6 @@ const projects = [
 
 export default function GallerySection() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const activeProject = projects[activeIndex];
-  const inactiveProjects = projects.filter((_, index) => index !== activeIndex);
 
   return (
     <section id="gallery" className="py-12 md:py-24">
@@ -49,66 +50,50 @@ export default function GallerySection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="col-span-1">
-             <Card 
-                className="group relative overflow-hidden rounded-3xl cursor-pointer w-full border-none"
-                onClick={() => setActiveIndex(projects.findIndex(p => p.title === activeProject.title))}
-             >
-                <CardContent className="p-0">
-                    <Image
-                        src={activeProject.landscapeSrc}
-                        alt={activeProject.title}
-                        width={800}
-                        height={600}
-                        data-ai-hint={activeProject.hint}
-                        className="w-full h-auto aspect-[4/3] object-cover transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute top-4 right-4 bg-black/30 text-white p-2 rounded-full">
-                        <ArrowUpRight className="h-6 w-6" />
-                    </div>
-                    <div className="absolute bottom-0 left-0 p-6">
-                      <h3 className="font-headline text-2xl font-bold text-white">
-                        {activeProject.title}
-                      </h3>
-                    </div>
-                </CardContent>
-            </Card>
-          </div>
-          
-          <div className="col-span-1 grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {inactiveProjects.map((project, index) => {
-              const originalIndex = projects.findIndex(p => p.title === project.title);
-              return (
-                 <Card
-                    key={project.title}
-                    className="group relative overflow-hidden rounded-3xl cursor-pointer w-full border-none"
-                    onClick={() => setActiveIndex(originalIndex)}
+        <div className="flex flex-col lg:flex-row gap-4 h-[600px]">
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              className={cn(
+                'relative overflow-hidden rounded-3xl cursor-pointer transition-all duration-700 ease-in-out',
+                activeIndex === index ? 'flex-[5]' : 'flex-[1]'
+              )}
+              onClick={() => setActiveIndex(index)}
+            >
+              <Card className="w-full h-full border-none">
+                <CardContent className="p-0 w-full h-full">
+                  <Image
+                    src={activeIndex === index ? project.landscapeSrc : project.portraitSrc}
+                    alt={project.title}
+                    width={activeIndex === index ? 800 : 400}
+                    height={activeIndex === index ? 600 : 500}
+                    data-ai-hint={project.hint}
+                    className={cn(
+                      "w-full h-full object-cover transition-all duration-500",
+                      activeIndex !== index && "grayscale"
+                    )}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div 
+                    className={cn(
+                        "absolute top-4 right-4 bg-black/30 text-white p-2 rounded-full transition-opacity duration-300",
+                        activeIndex === index ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                    )}
                   >
-                    <CardContent className="p-0">
-                        <Image
-                            src={project.portraitSrc}
-                            alt={project.title}
-                            width={400}
-                            height={500}
-                            data-ai-hint={project.hint}
-                            className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
-                        />
-                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                         <div className="absolute top-4 right-4 bg-black/30 text-white p-2 rounded-full">
-                            <ArrowUpRight className="h-5 w-5" />
-                        </div>
-                        <div className="absolute bottom-0 left-0 p-4">
-                          <h3 className="font-headline text-lg font-bold text-white">
-                            {project.title}
-                          </h3>
-                        </div>
-                    </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                    <ArrowUpRight className="h-6 w-6" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 p-6">
+                    <h3 className={cn(
+                        "font-headline font-bold text-white transition-all duration-500",
+                        activeIndex === index ? "text-3xl" : "text-xl"
+                    )}>
+                      {project.title}
+                    </h3>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
         </div>
       </div>
     </section>
