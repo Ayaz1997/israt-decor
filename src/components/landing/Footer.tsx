@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-card text-card-foreground py-16 md:py-24 relative overflow-hidden">
+    <footer className="bg-gradient-to-t from-secondary to-card text-card-foreground py-16 md:py-24 relative overflow-hidden">
       <div className="container px-4 md:px-6 relative z-10">
         <div className="mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tighter">
