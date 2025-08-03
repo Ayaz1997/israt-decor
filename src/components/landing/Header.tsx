@@ -30,7 +30,10 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = navLinks.map(link => document.querySelector(link.href.startsWith('#') ? link.href : ''));
+      const sections = navLinks
+        .filter(link => link.href.length > 1 && link.href.startsWith('#'))
+        .map(link => document.querySelector(link.href));
+        
       let currentSection = '#';
 
       sections.forEach(section => {
