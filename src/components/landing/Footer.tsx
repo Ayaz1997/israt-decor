@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Facebook, Instagram, MessageCircle as WhatsApp } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -11,7 +11,7 @@ export default function Footer() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight">
             Are You Prepared To
             <br />
-            Collaborate With Us
+            Collaborate With Us?
           </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -36,16 +36,16 @@ export default function Footer() {
           <div className="space-y-2">
             <h3 className="font-semibold text-lg">Our Social Links</h3>
             <div className="flex items-center space-x-4">
-              <Link href="#" className="transition-transform hover:scale-110 text-blue-600">
-                <Facebook className="h-6 w-6" />
+              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+                <Image src="/facebook.svg" alt="Facebook" width={24} height={24} className="h-6 w-6" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="transition-transform hover:scale-110 text-pink-600">
-                <Instagram className="h-6 w-6" />
+              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+                 <Image src="/instagram.svg" alt="Instagram" width={24} height={24} className="h-6 w-6" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="#" className="transition-transform hover:scale-110 text-green-500">
-                <WhatsApp className="h-6 w-6" />
+              <Link href="https://wa.me/11230011234" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+                 <Image src="/whatsapp.svg" alt="WhatsApp" width={24} height={24} className="h-6 w-6" />
                 <span className="sr-only">WhatsApp</span>
               </Link>
             </div>
