@@ -3,7 +3,6 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import Autoplay from "embla-carousel-autoplay";
 
@@ -12,8 +11,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Button } from '../ui/button';
 
 const offerings = [
     { title: 'False Ceiling', hint: 'modern false ceiling', src: 'https://placehold.co/400x500.png' },
@@ -39,11 +39,6 @@ export default function OfferingsSection() {
                     Transform your space with our expert interior design services, where creativity meets functionality to bring your vision to life.
                 </p>
             </div>
-            <Button variant="outline" asChild>
-                <Link href="#gallery">
-                    View all
-                </Link>
-            </Button>
         </div>
         <Carousel
             plugins={[plugin.current]}
@@ -82,6 +77,8 @@ export default function OfferingsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
+          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
         </Carousel>
       </div>
     </section>
