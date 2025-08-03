@@ -42,8 +42,8 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 right-0 z-0 opacity-5">
-        <span className="text-[12rem] md:text-[18rem] font-black font-headline text-foreground select-none">
+      <div className="absolute bottom-4 right-4 z-0 opacity-5">
+        <span className="text-7xl md:text-9xl font-black font-headline text-foreground select-none">
           ISRAT DECOR
         </span>
       </div>
