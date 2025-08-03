@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Menu, Phone, X } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Menu, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -17,7 +18,7 @@ const navLinks = [
 function Logo() {
   return (
     <Link href="/" className="flex items-center" prefetch={false}>
-      <span className="font-headline text-2xl font-bold">ISRAT DECOR</span>
+      <Image src="/israt-decor-logo.png" alt="ISRAT DECOR Logo" width={150} height={40} />
     </Link>
   );
 }

@@ -6,6 +6,21 @@ export const metadata: Metadata = {
   title: 'ISRAT DEDECOR - Transforming Spaces, Elevating Lives',
   description: 'Bespoke interior design services to transform your space and elevate your life. Book a consultation today.',
   keywords: ['interior design', 'bespoke design', 'luxury interiors', 'home decor', 'ISRAT DECOR'],
+  icons: {
+    icon: '/israt-decor-logo.png',
+  },
+  openGraph: {
+    title: 'ISRAT DEDECOR - Transforming Spaces, Elevating Lives',
+    description: 'Bespoke interior design services to transform your space and elevate your life.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'ISRAT DEDECOR - Transforming Spaces, Elevating Lives',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
