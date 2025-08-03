@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Phone } from 'lucide-react';
+import { Menu, Phone, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -25,6 +25,7 @@ function Logo() {
 export default function Header() {
   const [activeLink, setActiveLink] = useState('#');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,22 +61,23 @@ export default function Header() {
     };
   }, []);
 
-  const NavMenu = ({ className, isInSheet = false }: { className?: string, isInSheet?: boolean }) => (
+  const NavMenu = ({ className, isInSheet = false, onItemClick }: { className?: string, isInSheet?: boolean, onItemClick?: () => void }) => (
     <nav className={cn(className)}>
       {navLinks.map(link => (
           <Link
             key={link.href}
             href={link.href}
+            onClick={onItemClick}
             className={cn(
-                'px-4 py-2 transition-colors text-lg whitespace-nowrap',
+                'px-4 py-2 transition-colors whitespace-nowrap',
                 isInSheet 
-                  ? 'font-semibold text-lg' 
-                  : 'text-lg',
-                activeLink === link.href
+                  ? 'font-semibold text-2xl text-white/80 hover:text-white' 
+                  : 'text-lg text-foreground/80 hover:text-foreground font-semibold',
+                activeLink === link.href && !isInSheet
                   ? 'text-primary font-bold'
-                  : 'text-foreground/80 hover:text-foreground font-semibold'
+                  : ''
             )}
-            style={{ fontSize: '18px' }}
+            style={isInSheet ? {} : { fontSize: '18px' }}
             prefetch={false}
           >
             {link.label}
@@ -104,21 +106,34 @@ export default function Header() {
             </Button>
           </div>
           <div className="md:hidden">
-            <Sheet>
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="text-foreground">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-background border-l-border">
-                <div className="flex flex-col gap-6 p-6">
-                  <div className="mb-4">
-                    <Logo />
-                  </div>
-                  <NavMenu className="flex flex-col items-start gap-4" isInSheet={true} />
-                  <Button asChild className="mt-4">
-                    <Link href="#contact">
+              <SheetContent 
+                side="bottom" 
+                className="h-full w-full p-0 border-none"
+                style={{
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                }}
+              >
+                <div className="container h-full mx-auto px-4 flex flex-col items-center justify-center">
+                  <SheetTrigger asChild>
+                     <Button variant="ghost" size="icon" className="text-white absolute top-6 right-4">
+                        <X className="h-8 w-8" />
+                        <span className="sr-only">Close menu</span>
+                    </Button>
+                  </SheetTrigger>
+                  
+                  <NavMenu className="flex flex-col items-center text-center gap-6" isInSheet={true} onItemClick={() => setIsMobileMenuOpen(false)} />
+                  
+                  <Button asChild className="mt-12" size="lg">
+                    <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
                       <Phone />
                       Get in touch
                     </Link>
