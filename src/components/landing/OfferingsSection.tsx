@@ -1,18 +1,16 @@
-
 'use client';
 
 import * as React from 'react';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ArrowLeft, ArrowRight } from 'lucide-react';
 import Autoplay from "embla-carousel-autoplay";
-
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel';
 
 const offerings = [
@@ -25,9 +23,19 @@ const offerings = [
 ];
 
 export default function OfferingsSection() {
+  const [api, setApi] = React.useState<CarouselApi>()
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
+
+  const scrollPrev = React.useCallback(() => {
+    api?.scrollPrev()
+  }, [api])
+
+  const scrollNext = React.useCallback(() => {
+    api?.scrollNext()
+  }, [api])
+
 
   return (
     <section id="offerings" className="py-12 md:py-24 bg-background">
@@ -39,8 +47,19 @@ export default function OfferingsSection() {
                     Transform your space with our expert interior design services, where creativity meets functionality to bring your vision to life.
                 </p>
             </div>
+            <div className="flex gap-2">
+                <Button variant="ghost" size="icon" onClick={scrollPrev}>
+                    <ArrowLeft className="h-6 w-6" />
+                    <span className="sr-only">Previous slide</span>
+                </Button>
+                <Button variant="ghost" size="icon" onClick={scrollNext}>
+                    <ArrowRight className="h-6 w-6" />
+                    <span className="sr-only">Next slide</span>
+                </Button>
+            </div>
         </div>
         <Carousel
+            setApi={setApi}
             plugins={[plugin.current]}
             className="w-full"
             onMouseEnter={plugin.current.stop}
@@ -77,8 +96,6 @@ export default function OfferingsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
-          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 hidden md:flex" />
         </Carousel>
       </div>
     </section>
