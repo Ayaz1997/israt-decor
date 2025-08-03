@@ -63,11 +63,11 @@ export default function Header() {
   const NavMenu = ({ className, isInSheet = false }: { className?: string, isInSheet?: boolean }) => (
     <nav className={cn(className)}>
       {navLinks.map(link => (
-         <Button asChild variant="ghost" key={link.href}>
           <Link
+            key={link.href}
             href={link.href}
             className={cn(
-                'transition-colors text-lg',
+                'px-4 py-2 transition-colors text-lg',
                 isInSheet 
                   ? 'font-semibold' 
                   : 'font-semibold',
@@ -79,7 +79,6 @@ export default function Header() {
           >
             {link.label}
           </Link>
-        </Button>
       ))}
     </nav>
   );
@@ -133,7 +132,7 @@ export default function Header() {
         <div 
           className="hidden md:flex items-center backdrop-blur-[12px] border border-white/20 rounded-[40px] px-6 py-3 shadow-2xl shadow-black/20"
           style={{
-            background: 'rgba(255, 255, 255, 0.10)',
+            background: 'rgba(255, 255, 255, 0.1)',
             backgroundImage: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)',
           }}
         >
