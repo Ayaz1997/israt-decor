@@ -21,7 +21,7 @@ export default function HeroSection() {
             <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
               Transforming Spaces,
               <br />
-              <span className="text-accent">Elevating Lives</span>
+              <span className="text-warm-beige">Elevating Lives</span>
             </h1>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild>
