@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-card text-card-foreground py-16 md:py-24 relative overflow-hidden">
       <div className="container px-4 md:px-6 relative z-10">
         <div className="mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tighter">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tight">
             Are You Prepared To
             <br />
             Collaborate With Us
