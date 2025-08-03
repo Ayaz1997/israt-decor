@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+import { Menu, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -97,7 +97,10 @@ export default function Header() {
           </div>
           <div className="hidden md:block">
             <Button asChild>
-              <Link href="#contact">Get in touch</Link>
+              <Link href="#contact">
+                <Phone />
+                Get in touch
+              </Link>
             </Button>
           </div>
           <div className="md:hidden">
@@ -115,7 +118,10 @@ export default function Header() {
                   </div>
                   <NavMenu className="flex flex-col items-start gap-4" isInSheet={true} />
                   <Button asChild className="mt-4">
-                    <Link href="#contact">Get in touch</Link>
+                    <Link href="#contact">
+                      <Phone />
+                      Get in touch
+                    </Link>
                   </Button>
                 </div>
               </SheetContent>
