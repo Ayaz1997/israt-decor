@@ -1,42 +1,51 @@
 'use client';
 
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
-import { useEffect, useState } from 'react';
-
-function Logo() {
-    return (
-      <Link href="/" className="flex items-center" prefetch={false}>
-         <span className="font-headline text-2xl font-bold">ISRAT DECOR</span>
-      </Link>
-    )
-}
 
 export default function Footer() {
-  const [currentYear, setCurrentYear] = useState('');
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear().toString());
-  }, []);
-
   return (
-    <footer className="py-6 border-t border-border">
-      <div className="container px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-primary" />
-            <Logo />
+    <footer className="bg-card text-card-foreground py-16 md:py-24 relative overflow-hidden">
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="mb-12 md:mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline tracking-tighter">
+            Are You Prepared To
+            <br />
+            Collaborate With Us
+          </h2>
         </div>
-        <p className="text-sm text-muted-foreground text-center md:text-left">
-          © {currentYear} ISRAT DECOR. All rights reserved.
-        </p>
-        <nav className="flex gap-4">
-          <Link href="#gallery" className="text-sm hover:text-primary transition-colors" prefetch={false}>
-            Gallery
-          </Link>
-          <Link href="#contact" className="text-sm hover:text-primary transition-colors" prefetch={false}>
-            Contact
-          </Link>
-        </nav>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="space-y-2">
+            <h3 className="font-semibold text-lg">Address</h3>
+            <p className="text-muted-foreground">
+              1234 City st, New York
+              <br />
+              NY 8800
+            </p>
+          </div>
+          <div className="space-y-2">
+            <h3 className="font-semibold text-lg">Contact</h3>
+            <p className="text-muted-foreground">
+              +1 (123) 001-1234
+              <br />
+              <Link href="mailto:hello@isratdecor.com" className="hover:text-primary">
+                hello@isratdecor.com
+              </Link>
+            </p>
+          </div>
+          <div className="space-y-2">
+            <h3 className="font-semibold text-lg">Office Hours</h3>
+            <p className="text-muted-foreground">
+              Saturday - Sunday
+              <br />
+              10am - 8pm
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="absolute bottom-0 right-0 z-0 opacity-5">
+        <span className="text-[12rem] md:text-[18rem] font-black font-headline text-foreground select-none">
+          ISRAT DECOR
+        </span>
       </div>
     </footer>
   );
