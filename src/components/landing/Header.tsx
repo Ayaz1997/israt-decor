@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Menu, Phone, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -72,12 +72,12 @@ export default function Header() {
                 'px-4 py-2 transition-colors whitespace-nowrap',
                 isInSheet 
                   ? 'font-semibold text-2xl text-white/80 hover:text-white' 
-                  : 'text-lg text-foreground/80 hover:text-foreground font-semibold',
+                  : 'text-sm text-foreground/80 hover:text-foreground font-semibold',
                 activeLink === link.href && !isInSheet
                   ? 'text-primary font-bold'
                   : ''
             )}
-            style={isInSheet ? {} : { fontSize: '24px' }}
+            style={isInSheet ? {} : { fontSize: '18px' }}
             prefetch={false}
           >
             {link.label}
@@ -153,17 +153,11 @@ export default function Header() {
             <div 
               className="m-4 p-6 rounded-3xl"
               style={{
-                background: 'rgba(0, 0, 0, 0.5)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
+                background: 'rgba(225, 225, 225, 0.1)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
               }}
             >
-              <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="text-white absolute top-6 right-6">
-                    <X className="h-8 w-8" />
-                    <span className="sr-only">Close menu</span>
-                </Button>
-              </SheetTrigger>
               
               <NavMenu className="flex flex-col items-start text-left gap-4" isInSheet={true} onItemClick={() => setIsMobileMenuOpen(false)} />
               
