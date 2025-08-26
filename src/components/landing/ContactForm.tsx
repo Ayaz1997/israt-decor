@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Layers, Soup, Hammer, Zap, AirVent, Shirt } from 'lucide-react';
 
 const initialState: FormState = {
   message: '',
@@ -23,12 +24,12 @@ const initialState: FormState = {
 };
 
 const workRequirements = [
-  "False Ceiling",
-  "Modular Kitchen",
-  "Carpentry",
-  "Electrical",
-  "AC Installation",
-  "Wardrobe",
+  { value: "False Ceiling", icon: <Layers className="h-4 w-4 mr-2" /> },
+  { value: "Modular Kitchen", icon: <Soup className="h-4 w-4 mr-2" /> },
+  { value: "Carpentry", icon: <Hammer className="h-4 w-4 mr-2" /> },
+  { value: "Electrical", icon: <Zap className="h-4 w-4 mr-2" /> },
+  { value: "AC Installation", icon: <AirVent className="h-4 w-4 mr-2" /> },
+  { value: "Wardrobe", icon: <Shirt className="h-4 w-4 mr-2" /> },
 ];
 
 function SubmitButton() {
@@ -80,7 +81,12 @@ export default function ContactForm() {
             </SelectTrigger>
             <SelectContent>
                 {workRequirements.map((req) => (
-                    <SelectItem key={req} value={req}>{req}</SelectItem>
+                    <SelectItem key={req.value} value={req.value}>
+                      <div className="flex items-center">
+                        {req.icon}
+                        {req.value}
+                      </div>
+                    </SelectItem>
                 ))}
             </SelectContent>
         </Select>
