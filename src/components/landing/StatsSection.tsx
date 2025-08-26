@@ -1,15 +1,15 @@
 const stats = [
   {
-    value: '300+',
+    value: '10+',
     label: 'Stunning Spaces Designed',
   },
   {
-    value: '10+',
+    value: '5+',
     label: 'Years of Experience',
   },
   {
-    value: '50+',
-    label: 'Awards & Recognition',
+    value: '20+',
+    label: 'Happy Clients Served',
   },
 ];
 

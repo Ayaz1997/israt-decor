@@ -14,12 +14,12 @@ import {
 } from '@/components/ui/carousel';
 
 const offerings = [
-    { title: 'False Ceiling', hint: 'modern false ceiling', src: 'https://placehold.co/400x500.png' },
-    { title: 'Modular Kitchen', hint: 'sleek modular kitchen', src: 'https://placehold.co/400x500.png' },
-    { title: 'Carpentry', hint: 'custom carpentry work', src: 'https://placehold.co/400x500.png' },
-    { title: 'Electrical', hint: 'safe electrical wiring', src: 'https://placehold.co/400x500.png' },
-    { title: 'AC Installation', hint: 'air conditioner installation', src: 'https://placehold.co/400x500.png' },
-    { title: 'Wardrobe', hint: 'stylish wardrobe design', src: 'https://placehold.co/400x500.png' },
+    { title: 'False Ceiling', hint: 'modern false ceiling', src: '/content/false-ceiling.png' },
+    { title: 'Modular Kitchen', hint: 'sleek modular kitchen', src: '/content/modular-kitchen.png' },
+    { title: 'Carpentry', hint: 'custom carpentry work', src: '/content/carpentry.png' },
+    { title: 'Electrical', hint: 'safe electrical wiring', src: '/content/electrical.png' },
+    { title: 'AC Installation', hint: 'air conditioner installation', src: '/content/ac-installation.png' },
+    { title: 'Wardrobe', hint: 'stylish wardrobe design', src: '/content/wardrobe.png' },
 ];
 
 export default function OfferingsSection() {
@@ -44,7 +44,7 @@ export default function OfferingsSection() {
             <div className="max-w-xl">
                 <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">OUR SERVICES</h2>
                 <p className="mt-4 text-muted-foreground">
-                    Transform your space with our expert interior design services, where creativity meets functionality to bring your vision to life.
+                    From ceilings to storage, kitchens to climate - discover complete interior solutions designed for inspired, effortless living.
                 </p>
             </div>
             <div className="flex gap-2">

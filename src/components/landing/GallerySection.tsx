@@ -9,30 +9,30 @@ import { ArrowUpRight } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: 'Zen Habitat',
-    landscapeSrc: 'https://placehold.co/800x600.png',
-    portraitSrc: 'https://placehold.co/400x500.png',
-    hint: 'zen habitat',
+    title: 'Modern Habitat',
+    landscapeSrc: '/content/project-1-a.png',
+    portraitSrc: '/content/project-1-b.png',
+    hint: 'modern habitat',
   },
   {
     id: 2,
-    title: 'Modern Heritage',
-    landscapeSrc: 'https://placehold.co/800x600.png',
-    portraitSrc: 'https://placehold.co/400x500.png',
+    title: 'Modern Kitchen',
+    landscapeSrc: '/content/project-2-a.png',
+    portraitSrc: '/content/project-2-b.png',
     hint: 'modern heritage',
   },
   {
     id: 3,
-    title: 'Urban Luxe',
-    landscapeSrc: 'https://placehold.co/800x600.png',
-    portraitSrc: 'https://placehold.co/400x500.png',
+    title: 'Luxe Furnitures',
+    landscapeSrc: '/content/project-3-a.png',
+    portraitSrc: '/content/project-3-b.png',
     hint: 'urban luxe',
   },
   {
     id: 4,
-    title: 'Nordic Essence',
-    landscapeSrc: 'https://placehold.co/800x600.png',
-    portraitSrc: 'https://placehold.co/400x500.png',
+    title: 'Aesthetic Cafe',
+    landscapeSrc: '/content/project-4-a.png',
+    portraitSrc: '/content/project-4-b.png',
     hint: 'nordic essence',
   },
 ];
@@ -44,9 +44,9 @@ export default function GallerySection() {
     <section id="gallery" className="py-12 md:py-24">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-start text-left space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">OUR PROJECTS</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">PORTFOLIO PROJECTS</h2>
           <p className="max-w-2xl text-muted-foreground">
-            Each project reflects our dedication to transforming visions into stunning realities.
+            Discover how we turn ideas into results. Explore highlights from our recent work.
           </p>
         </div>
         

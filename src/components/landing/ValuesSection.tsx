@@ -7,39 +7,40 @@ export default function ValuesSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold font-headline tracking-tighter leading-tight">
-              Bring Vision
+              Turn You Vision
               <span 
                 className="inline-block align-middle ml-2 w-28 h-12 rounded-full bg-cover bg-center overflow-hidden"
-                style={{ backgroundImage: "url('https://placehold.co/300x200.png')" }}
+                style={{ backgroundImage: "url('/content/values-1.png')" }}
                 data-ai-hint="modern chair"
               ></span>
               <br />
               <span 
                 className="inline-block align-middle mr-2 w-28 h-12 rounded-full bg-cover bg-center overflow-hidden"
-                style={{ backgroundImage: "url('https://placehold.co/300x200.png')" }}
+                style={{ backgroundImage: "url('/content/values-2.png')" }}
                 data-ai-hint="living room"
               ></span>
-              <span className="font-serif-display italic">to Life</span>
-              <br />
-              with Built.
+              <span className="font-serif-display italic">into Reality</span>
             </h2>
             
             <div className="space-y-4">
-                <h3 className="text-2xl font-bold font-headline text-primary">Insight Tools</h3>
+                <h3 className="text-2xl font-bold font-headline text-primary">Your Space, Elevated by Modern Excellence.</h3>
                 <p className="text-muted-foreground">
-                <span className="text-primary font-semibold">Gain</span> unparalleled insight into your operation, using the many standard dashboards and reports included with the indoor platform. Want to see more? You can easily create custom reports, forms and screens.
+                <span className="text-primary font-semibold">Experience</span> best-in-class solutions that blend innovative design with personalized service. Our modern approach and detail-driven craftsmanship ensure every space is uniquely tailored to your lifestyle-creating interiors that inspire, impress, and endure.
                 </p>
             </div>
           </div>
-          <div className="relative aspect-square">
-            <Image
-              src="https://placehold.co/600x600.png"
-              alt="Stylish orange and white cabinet in a well-lit room"
-              data-ai-hint="stylish cabinet"
-              fill
-              className="object-cover rounded-2xl"
-            />
-          </div>
+            <div className="relative aspect-video overflow-hidden rounded-2xl">
+            <video
+              src="/content/interior-promo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
+            </div>
         </div>
       </div>
     </section>
