@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Phone } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Menu, Phone, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -100,7 +100,7 @@ export default function Header() {
           </div>
           <div className="hidden md:block">
             <Button asChild>
-              <Link href="#contact">
+              <Link href="tel:+919658726866">
                 <Phone />
                 Get in touch
               </Link>
@@ -154,16 +154,16 @@ export default function Header() {
             <div 
               className="m-4 p-6 rounded-3xl"
               style={{
-                background: 'rgba(225, 225, 225, 0.1)',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
+                background: 'rgba(20, 20, 20, 0.6)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
               }}
             >
               
               <NavMenu className="flex flex-col items-start text-left gap-4" isInSheet={true} onItemClick={() => setIsMobileMenuOpen(false)} />
               
               <Button asChild className="mt-8" size="lg">
-                <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="tel:+919658726866" onClick={() => setIsMobileMenuOpen(false)}>
                   <Phone />
                   Get in touch
                 </Link>
