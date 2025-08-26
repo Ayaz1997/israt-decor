@@ -59,7 +59,8 @@ export default function ContactForm() {
 
     toast({
         title: 'Success!',
-        description: 'Your email app has been opened with the details.',
+        description: 'Your details have been sent, We will connect with you soon!',
+        duration: 5000,
     });
     
     formRef.current?.reset();
