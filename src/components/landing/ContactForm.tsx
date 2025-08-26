@@ -1,9 +1,6 @@
 'use client';
 
-import { useActionState } from 'react';
-import { useFormStatus } from 'react-dom';
-import { useEffect, useRef } from 'react';
-import { submitContactForm, type FormState } from '@/app/actions';
+import { useRef, useState, FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -18,11 +15,6 @@ import {
 } from "@/components/ui/select"
 import { Layers, Soup, Hammer, Zap, AirVent, Shirt } from 'lucide-react';
 
-const initialState: FormState = {
-  message: '',
-  success: false,
-};
-
 const workRequirements = [
   { value: "False Ceiling", icon: <Layers className="h-4 w-4 mr-2" /> },
   { value: "Modular Kitchen", icon: <Soup className="h-4 w-4 mr-2" /> },
@@ -32,42 +24,58 @@ const workRequirements = [
   { value: "Wardrobe", icon: <Shirt className="h-4 w-4 mr-2" /> },
 ];
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? 'Sending...' : 'Send Proposal'}
-    </Button>
-  );
-}
 
 export default function ContactForm() {
-  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
+  const [workRequirement, setWorkRequirement] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (state.message) {
-      toast({
-        title: state.success ? 'Success!' : 'Error',
-        description: state.message,
-        variant: state.success ? 'default' : 'destructive',
-      });
-      if (state.success) {
-        formRef.current?.reset();
-      }
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get('name') as string;
+    const message = formData.get('message') as string;
+    const requirement = workRequirement;
+
+    if (!name || !message || !requirement) {
+        toast({
+            title: 'Error',
+            description: 'Please fill out all required fields.',
+            variant: 'destructive',
+        });
+        setIsSubmitting(false);
+        return;
     }
-  }, [state, toast]);
+
+    const subject = `${requirement} by ${name}`;
+    const body = message;
+    
+    const mailtoLink = `mailto:hello@isratdecor.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+
+    toast({
+        title: 'Success!',
+        description: 'Your email app has been opened with the details.',
+    });
+    
+    formRef.current?.reset();
+    setWorkRequirement('');
+    setIsSubmitting(false);
+  };
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-4">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
         <Input id="name" name="name" placeholder="Your Name" required />
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
-        <Input id="email" name="email" type="email" placeholder="Your Email" required />
+        <Input id="email" name="email" type="email" placeholder="Your Email (for reference)" required />
       </div>
       <div className="space-y-2">
         <Label htmlFor="contactNumber">Contact Number</Label>
@@ -75,7 +83,7 @@ export default function ContactForm() {
       </div>
        <div className="space-y-2">
         <Label htmlFor="workRequirement">Work Requirement</Label>
-        <Select name="workRequirement" required>
+        <Select name="workRequirement" required onValueChange={setWorkRequirement} value={workRequirement}>
             <SelectTrigger id="workRequirement">
                 <SelectValue placeholder="Select a service" />
             </SelectTrigger>
@@ -95,7 +103,9 @@ export default function ContactForm() {
         <Label htmlFor="message">Message</Label>
         <Textarea id="message" name="message" placeholder="How can we help you?" rows={5} required />
       </div>
-      <SubmitButton />
+      <Button type="submit" className="w-full" disabled={isSubmitting}>
+        {isSubmitting ? 'Preparing...' : 'Send Proposal'}
+      </Button>
     </form>
   );
 }
