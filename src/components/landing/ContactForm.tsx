@@ -50,7 +50,7 @@ export default function ContactForm() {
         return;
     }
 
-    const subject = `${requirement} by ${name}`;
+    const subject = `${requirement} work request by ${name}`;
     const body = message;
     
     const mailtoLink = `mailto:hello@isratdecor.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
