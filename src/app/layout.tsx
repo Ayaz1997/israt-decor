@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'ISRAT DEDECOR - Live in Heaven you created.',
-  description: 'Crafting luxury interiors that turn every home into a masterpiece — tailored to your style, built for your comfort.',
+  title: 'ISRAT DECOR - Live in Heaven you created.',
+  description: 'Crafting luxury interiors that turn every home into a masterpiece.',
   keywords: [
     'interior design',
     'bespoke interior design',
@@ -38,20 +38,20 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ISRAT DEDECOR - Live in Heaven you created.',
+        alt: 'ISRAT DECOR - Live in Heaven you created.',
       },
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ISRAT DEDECOR - Live in Heaven you created.',
+        alt: 'ISRAT DECOR - Live in Heaven you created.',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ISRAT DEDECOR - Live in Heaven you created.',
-    description: 'Crafting luxury interiors that turn every home into a masterpiece — tailored to your style, built for your comfort.',
+    title: 'ISRAT DECOR - Live in Heaven you created.',
+    description: 'Crafting luxury interiors that turn every home into a masterpiece.',
     images: ['/og-image.png'],
   },
 };
